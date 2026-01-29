@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>German Trainer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🇩🇪 German Trainer</h1>
+
+  <section>
+    <h2>Add words (one per line)</h2>
+    <textarea id="wordInput" placeholder="Haus
+Baum
+Guten Morgen"></textarea>
+    <button onclick="addWords()">Add words</button>
+  </section>
+
+  <section>
+    <h2>Quiz</h2>
+    <label>
+      Number of questions:
+      <input type="number" id="questionCount" value="10" min="1" />
+    </label>
+    <button onclick="startQuiz()">Start quiz</button>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <h2 id="question"></h2>
+    <div id="options"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
