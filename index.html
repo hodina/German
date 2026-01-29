@@ -7,30 +7,46 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🇩🇪 German Trainer</h1>
 
-  <section>
-    <h2>Add words (one per line)</h2>
-    <textarea id="wordInput" placeholder="Haus
-Baum
+<nav>
+  <button onclick="showPage('add')">➕ Add Words</button>
+  <button onclick="showPage('list')">📋 Word List</button>
+  <button onclick="showPage('quiz')">🎯 Quiz</button>
+</nav>
+
+<section id="add" class="page">
+  <h2>Add words (one per line)</h2>
+  <p>Format: German = English (optional)</p>
+  <textarea id="wordInput" placeholder="Haus = house
+Baum = tree
 Guten Morgen"></textarea>
-    <button onclick="addWords()">Add words</button>
-  </section>
+  <button onclick="addWords()">Add words</button>
+</section>
 
-  <section>
-    <h2>Quiz</h2>
-    <label>
-      Number of questions:
-      <input type="number" id="questionCount" value="10" min="1" />
-    </label>
-    <button onclick="startQuiz()">Start quiz</button>
-  </section>
+<section id="list" class="page hidden">
+  <h2>All words</h2>
+  <input type="text" id="search" placeholder="Search..." oninput="renderList()" />
+  <table>
+    <thead>
+      <tr><th>German</th><th>English</th><th>Rank</th></tr>
+    </thead>
+    <tbody id="wordTable"></tbody>
+  </table>
+</section>
 
-  <section id="quiz" class="hidden">
-    <h2 id="question"></h2>
+<section id="quiz" class="page hidden">
+  <h2>Quiz</h2>
+  <label>Number of questions:
+    <input type="number" id="questionCount" value="10" min="1"/>
+  </label>
+  <button onclick="startQuiz()">Start quiz</button>
+
+  <div id="quizBox" class="hidden">
+    <h3 id="question"></h3>
     <div id="options"></div>
-  </section>
+  </div>
+</section>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
